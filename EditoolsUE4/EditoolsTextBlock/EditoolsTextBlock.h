@@ -24,7 +24,7 @@ namespace EditoolsUE4
 			/// <param name="_lambdaText"></param>
 			/// <param name="_toolTipText"></param>
 			/// <param name="_textColor"></param>
-			/// <returns></returns>
+			/// <returns>TSharedRef<STextBlock></returns>
 			static TSharedRef<STextBlock> CreateTextBlock_DynamicText(TFunction<FText()> _lambdaText, FText _toolTipText, FLinearColor _textColor = FLinearColor::Black);
 
 			/// <summary>
@@ -33,7 +33,7 @@ namespace EditoolsUE4
 			/// <param name="_lambdaText"></param>
 			/// <param name="_lambdaToolTipText"></param>
 			/// <param name="_lambdaTextColor"></param>
-			/// <returns></returns>
+			/// <returns>TSharedRef<STextBlock></returns>
 			static TSharedRef<STextBlock> CreateTextBlock_AllDynamic(TFunction<FText()> _lambdaText, TFunction<FText()> _lambdaToolTipText, TFunction < FSlateColor()> _lambdaTextColor);
 	};
 }

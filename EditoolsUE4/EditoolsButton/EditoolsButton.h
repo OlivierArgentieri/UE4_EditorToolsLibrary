@@ -11,31 +11,49 @@ namespace EditoolsUE4
 	class EditoolsButton
 	{
 		public:
-		
 		/// <summary>
-		/// Method to create button with minimum parameters
-		/// Exemple usage : EditoolsUE4::EditoolsButton::CreateButton(FOnClicked::CreateRaw(this, &MyClass::MyCallback), FText::FromString("MyText"), FText::FromString("MyTooltipText"))
-		/// </summary>
-		/// <param name="_eventOnClick"></param>
-		/// <param name="_textButton"></param>
-		/// <param name="_tooltipTextButton"></param>
-		/// <returns></returns>
-		static TSharedRef<SButton> CreateButton(FOnClicked _eventOnClick, FText _textButton = FText(), FText _tooltipTextButton = FText());
-
-
-		
-
-
-		/// <summary>
-		/// Create Button with Color Options
+		/// Create Button with basic options
 		/// </summary>
 		/// <param name="_eventOnClick"></param>
 		/// <param name="_textButton"></param>
 		/// <param name="_tooltipTextButton"></param>
 		/// <param name="_buttonColor"></param>
 		/// <param name="_textColor"></param>
-		/// <returns></returns>
-		static TSharedRef<SButton> CreateButtonWithColor(FOnClicked _eventOnClick, FText _textButton = FText(), FText _tooltipTextButton = FText(), FLinearColor _buttonColor = FLinearColor::White, FLinearColor _textColor = FLinearColor::Black);
+		/// <returns>TSharedRef<SButton></returns>
+		static TSharedRef<SButton> CreateButton(FOnClicked _eventOnClick, FText _textButton = FText(), FText _tooltipTextButton = FText(), FLinearColor _buttonColor = FLinearColor::White, FLinearColor _textColor = FLinearColor::Black);
 
+
+		/// <summary>
+		/// Create Button with lambda callback event
+		/// </summary>
+		/// <param name="_lambdaEventOnClick"></param>
+		/// <param name="_textButton"></param>
+		/// <param name="_tooltipTextButton"></param>
+		/// <param name="_buttonColor"></param>
+		/// <param name="_textColor"></param>
+		/// <returns>TSharedRef<SButton></returns>
+		static TSharedRef<SButton> CreateButton_Lambda(TFunction<FReply()> _lambdaEventOnClick, FText _textButton = FText(), FText _tooltipTextButton = FText(), FLinearColor _buttonColor = FLinearColor::White, FLinearColor _textColor = FLinearColor::Black);
+
+		/// <summary>
+		/// Create button with dynamic texts
+		/// </summary>
+		/// <param name="_eventOnClick"></param>
+		/// <param name="_lambdaTextButton"></param>
+		/// <param name="_lambdaTooltipTextButton"></param>
+		/// <param name="_buttonColor"></param>
+		/// <param name="_textColor"></param>
+		/// <returns>TSharedRef<SButton></returns>
+		static TSharedRef<SButton> CreateButton_DynamicText(FOnClicked _eventOnClick, TFunction<FText()> _lambdaTextButton, TFunction<FText()>  _lambdaTooltipTextButton, FLinearColor _buttonColor = FLinearColor::White, FLinearColor _textColor = FLinearColor::Black);
+
+		/// <summary>
+		/// Create Button with Dynamic Texts and Dynamic Colors
+		/// </summary>
+		/// <param name="_lambdaEventOnClick"></param>
+		/// <param name="_lambdaTextButton"></param>
+		/// <param name="_lambdaTooltipTextButton"></param>
+		/// <param name="_LambdaButtonColor"></param>
+		/// <param name="_lambdaTextColor"></param>
+		/// <returns>TSharedRef<SButton></returns>
+		static TSharedRef<SButton> CreateButton_AllDynamic(TFunction<FReply()> _lambdaEventOnClick, TFunction<FText()> _lambdaTextButton, TFunction<FText()> _lambdaTooltipTextButton, TFunction<FSlateColor()> _LambdaButtonColor, TFunction<FSlateColor()> _lambdaTextColor);
 	};
 }

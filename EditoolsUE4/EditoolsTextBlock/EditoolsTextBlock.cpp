@@ -18,7 +18,7 @@ TSharedRef<STextBlock> EditoolsUE4::EditoolsTextBlock::CreateTextBlock_DynamicTe
 		.ColorAndOpacity(FSlateColor(_textColor));
 }
 
-TSharedRef<STextBlock> EditoolsUE4::EditoolsTextBlock::CreateTextBlock_AllDynamic(TFunction<FText()> _lambdaText, TFunction < FText()> _lambdaToolTipText, TFunction < FSlateColor()> _lambdaTextColor)
+TSharedRef<STextBlock> EditoolsUE4::EditoolsTextBlock::CreateTextBlock_AllDynamic(TFunction<FText()> _lambdaText, TFunction <FText()> _lambdaToolTipText, TFunction <FSlateColor()> _lambdaTextColor)
 {
 	return SNew(STextBlock)
 		.Text_Lambda(std::move(_lambdaText))
